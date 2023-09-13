@@ -22,7 +22,7 @@ require("../db/connection");
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://codecampjr.vercel.app",
   })
 );
 app.use(
