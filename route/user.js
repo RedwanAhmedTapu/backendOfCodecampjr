@@ -53,7 +53,7 @@ const registration = async (req, res) => {
         }
       })
       .catch((err) => {
-        res.status(404).send("error");
+        res.status(404).send("err");
       });
   } catch (error) {
     res.status(404).send("error");
