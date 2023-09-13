@@ -62,7 +62,7 @@ console.log(__dirname);
 const upload = multer({ storage });
 
 app.post('/upload', upload.single('photo'), (req, res) => {
-  const imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+  const imageUrl = `https://codecampjrbackend.onrender.com/uploads/${req.file.filename}`;
   res.json({ imageUrl });
   activeUser.image=imageUrl;
 });
