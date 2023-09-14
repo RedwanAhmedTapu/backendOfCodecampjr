@@ -36,10 +36,10 @@ const learner = async (req, res) => {
         }
       })
       .catch((err) => {
-        res.status(404).send("error");
+        res.status(404).send({message:"error"});
       });
   } catch (err) {
-    res.status(404).send("err");
+    res.status(404).send({message:"err"});
   }
 };
 
