@@ -52,7 +52,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(express.static('public'))
 
 app.post("/user/signup", signup);
 app.post("/user/login", login);
