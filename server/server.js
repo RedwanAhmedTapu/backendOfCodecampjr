@@ -22,7 +22,7 @@ require("../db/connection");
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const corsOptions = {
-  origin: 'https://codecampjr.vercel.app/', 
+  origin: 'https://codecampjr.vercel.app', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, 
   optionsSuccessStatus: 204, 
