@@ -10,7 +10,6 @@ console.log(req.body);
     })
       .exec()
       .then((user) => {
-        console.log(user)
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) {
             console.error("Error comparing passwords:", err.message);
