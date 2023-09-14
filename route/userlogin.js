@@ -15,7 +15,7 @@ console.log(req.body);
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) {
             console.error("Error comparing passwords:", err.message);
-            return res.status(500).json({ error: "Error comparing passwords" });
+             res.status(500).json({ error: "Error comparing passwords" });
           }
 
           if (isMatch) {
