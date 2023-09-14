@@ -20,14 +20,15 @@ console.log(req.body);
 
           if (isMatch) {
             // Passwords match, user logged in successfully
-            console.log("login successfull");
-            const token = jwt.sign({ email }, process.env.JWT_SECRETKEY, {
-              expiresIn: "1h",
-            });
+            // console.log("login successfull");
+            // const token = jwt.sign({ email }, process.env.JWT_SECRETKEY, {
+            //   expiresIn: "1h",
+            // });
 
             // Return the token to the client
 
-            res.status(200).json({ user, token });
+            // res.status(200).json({ user, token });
+            res.status(200).json({ message:"login successfull" });
           } else {
             // Passwords do not match
             res.status(404).json({message:"not any user"});
