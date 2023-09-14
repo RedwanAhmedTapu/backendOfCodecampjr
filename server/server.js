@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const multer=require("multer");
 const path=require("path");
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
 
@@ -20,37 +21,11 @@ require("../db/connection");
 
 // const jsonParser = bodyParser.json();
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
-app.use(
-  cors({
-    origin: "*",
-  })
-);
-app.use(
-  cors({
-    methods: ["GET", "POST", "PUT"],
-  })
-);
-app.use(
-  cors({
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-app.use(
-  cors({
-    credentials: true,
-  })
-);
-app.use((req, res, next) => {
-  // res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "*"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT,PATCH, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
+const proxy = createProxyMiddleware({
+  target: 'https://codecampjrbackend.onrender.com', 
+  changeOrigin: true,
 });
-
+app.use('/', proxy);
 app.use(express.json());
 
 app.post("/user/signup", signup);
