@@ -20,27 +20,7 @@ require("../db/connection");
 
 // const jsonParser = bodyParser.json();
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
-app.use(
-  cors({
-    origin: "https://codecampjr.vercel.app",
-  })
-);
-app.use(
-  cors({
-    methods: ["GET", "POST", "PUT","PATCH","DELETE"],
 
-  })
-);
-app.use(
-  cors({
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-app.use(
-  cors({
-    credentials: true,
-  })
-);
 app.use((req, res, next) => {
   // res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
