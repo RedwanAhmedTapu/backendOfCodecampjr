@@ -1,13 +1,14 @@
 const activeUserOrder = require("../models/active.user.model");
 const SSLCommerzPayment = require("sslcommerz-lts");
 var ObjectId = require('mongodb').ObjectId;
-// const STORE_ID = process.env.STORE_ID;
-// const STORE_PASSWORD = process.env.STORE_PASSWORD;
-const STORE_ID=`${"codec64f29148f02ca"}`;
-const STORE_PASSWORD=`${"codec64f29148f02ca@ssl"}`;
+require("dotenv").config();
+
+const STORE_ID = process.env.STORE_ID;
+const STORE_PASSWORD = process.env.STORE_PASSWORD;
+
 const is_live = false;
 
-console.log(STORE_ID)
+// console.log(STORE_ID)
 const payment = async (req, res) => {
   const email = req.params.userMail;
   console.log(email);
