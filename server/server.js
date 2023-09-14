@@ -44,7 +44,7 @@ app.use((req, res, next) => {
   // res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://codecampjr.vercel.app"
+    "https://codecampjr.vercel.app/"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT,PATCH, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
@@ -52,6 +52,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(express.static('public'))
 
 app.post("/user/signup", signup);
 app.post("/user/login", login);
