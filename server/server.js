@@ -21,16 +21,17 @@ require("../db/connection");
 // const jsonParser = bodyParser.json();
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.use((req, res, next) => {
-  // res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://codecampjr.vercel.app"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT,PATCH, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (origin === 'https://codecampjr.vercel.app') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS')); 
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
