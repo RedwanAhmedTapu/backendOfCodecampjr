@@ -22,7 +22,7 @@ require("../db/connection");
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(
   cors({
-    origin: "https://codecampjr-git-main-redwanahmedtapu.vercel.app",
+    origin: "https://codecampjr.vercel.app",
   })
 );
 app.use(
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
   // res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://codecampjr-git-main-redwanahmedtapu.vercel.app"
+    "https://codecampjr.vercel.app"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT,PATCH, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
