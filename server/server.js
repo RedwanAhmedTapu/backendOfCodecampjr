@@ -11,8 +11,10 @@ const login = require("../route/userlogin");
 const learner = require("../route/trial.learner");
 const activeUser = require("../route/active.user");
 const activeuserData=require("../route/active.user.data");
+const googleAuthentication=require("../route/googleAuth");
 const payment =require("../route/payement-integration");
-const verifyEmail=require("../route/email.verification")
+const verifyEmail=require("../route/email.verification");
+
 
 // const bodyParser=require("body-parser");
 require("dotenv").config();
@@ -57,6 +59,7 @@ app.post("/user/signup", signup);
 app.post("/user/login", login);
 app.post("/learner/trial-registration", learner);
 app.post("/active-user/registration", activeUser);
+app.post("/auth/registration",googleAuthentication)
 app.get("/active-user/info/:emailId", activeuserData);
 app.post("/active-user/order/:userMail", payment);
 app.post("/verify-email",verifyEmail);
