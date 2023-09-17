@@ -8,8 +8,8 @@ const randomstring = require("randomstring");
 const googleAuthentication = async (req, res) => {
   console.log(req.body);
   try {
-    const { fname, lname, email, password } = req.body;
-    const hashpassword = await bcrypt.hash(password, 10);
+    const { fname, lname, email } = req.body;
+  
     const userData = await User.findOne({ email: email })
       .exec()
       .then((user) => {
@@ -19,8 +19,8 @@ const googleAuthentication = async (req, res) => {
           const newUser = new User({
             fname,
             lname,
-            email,
-            password: hashpassword,
+            email
+          
           });
           newUser.save();
 
