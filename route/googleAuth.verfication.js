@@ -29,7 +29,7 @@ const googleAuthverfication = async (req, res) => {
 
     await Verification.deleteOne({ email, code });
 
-    res.status(200).json({ message: "Email verified successfully" });
+    res.status(200).json({ message: `${req.body.code}` });
   } catch (error) {
     console.error("Error verifying email:", error);
     res.status(500).json({ message: `${req.body.code}` });
