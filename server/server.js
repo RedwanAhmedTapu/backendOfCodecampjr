@@ -14,6 +14,7 @@ const activeuserData=require("../route/active.user.data");
 const googleAuthentication=require("../route/googleAuth");
 const payment =require("../route/payement-integration");
 const verifyEmail=require("../route/email.verification");
+const googleAuthverfication=require("../route/googleAuth.verfication");
 
 
 // const bodyParser=require("body-parser");
@@ -63,6 +64,7 @@ app.post("/auth/registration",googleAuthentication)
 app.get("/active-user/info/:emailId", activeuserData);
 app.post("/active-user/order/:userMail", payment);
 app.post("/verify-email",verifyEmail);
+app.post("/auth/googleAuth-verfication",googleAuthverfication);
 
 
 const storage = multer.diskStorage({
