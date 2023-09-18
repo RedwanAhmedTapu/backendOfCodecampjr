@@ -1,7 +1,7 @@
 const { User, Verification } = require("../models/register.model");
 
 const googleAuthverfication = async (req, res) => {
-  const { email, otpData:code } = req.body;
+  const { userEmail:email, otpData:code } = req.body;
   console.log("verification" + "  " + `${code}`);
   console.log(req.body);
   try {
