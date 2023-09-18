@@ -22,17 +22,17 @@ const googleAuthverfication = async (req, res) => {
       if (!user.isVerified) {
         await User.deleteOne({ email });
       }
-      return res.status(400).json({ message:  `${req.body.code}` });
+      return res.status(400).json({ message:  `${req.body.otpData}` });
     }
 
     await User.findOneAndUpdate({ email }, { $set: { isVerified: true } });
 
     await Verification.deleteOne({ email, code });
 
-    res.status(200).json({ message: `${req.body.code}` });
+    res.status(200).json({ message: `${req.body.otpData}` });
   } catch (error) {
     console.error("Error verifying email:", error);
-    res.status(500).json({ message: `${req.body.code}` });
+    res.status(500).json({ message: `${req.body.otpData}` });
   }
 };
 module.exports = googleAuthverfication;
