@@ -25,7 +25,6 @@ const googleAuthentication = async (req, res) => {
           newUser.save();
 
           const verificationCode = randomstring.generate(6);
-          console.log(verificationCode);
           const newVerification = new Verification({
             email,
             code: verificationCode,
