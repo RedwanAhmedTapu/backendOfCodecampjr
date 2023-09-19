@@ -27,6 +27,7 @@ const verifyEmail = async (req, res) => {
 
     await User.findOneAndUpdate({ email }, { $set: { isVerified: true } });
 
+
     await Verification.deleteOne({ email, code });
 
     res.status(200).json({ message: "Email verified successfully" });

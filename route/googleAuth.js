@@ -34,11 +34,15 @@ const googleAuthentication = async (req, res) => {
         
 
           res.status(200).json({message:`${verificationCode}`});
+          
         }
+       
+        
       })
       .catch((err) => {
         res.status(404).send("err");
       });
+
   } catch (error) {
     res.status(404).send("error");
   }

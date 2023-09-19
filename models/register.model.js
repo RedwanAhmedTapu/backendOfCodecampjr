@@ -21,6 +21,10 @@ const studentInfoSchema = new mongoose.Schema({
     unique:true
   },
   isVerified: { type: Boolean, default: false },
+  isLoggedin: { type: Boolean, default: false },
+  image:{
+    type:String
+  }
 
 });
 
