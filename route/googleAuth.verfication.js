@@ -23,6 +23,8 @@ const googleAuthverfication = async (req, res) => {
         await User.deleteOne({ email });
       }
       return res.status(400).json({ message: "Invalid verification code" });
+    await User.findOneAndUpdate({ email }, { $set: { isLoggedin: true } });
+
     }
     await User.findOneAndUpdate({ email }, { $set: { isVerified: true } });
 
