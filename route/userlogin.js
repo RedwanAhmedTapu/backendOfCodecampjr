@@ -35,9 +35,9 @@ const userLog = async (req, res) => {
         res.status(404).json({ message: "err" });
       });
 
-    if (userData.isVerified === "true") {
+  
       await User.findOneAndUpdate({ email }, { $set: { isLoggedin: true } });
-    }
+    
   } catch {
     res.status(404).json({ message: "errorr" });
   }
