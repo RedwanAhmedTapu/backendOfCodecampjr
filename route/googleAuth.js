@@ -42,7 +42,10 @@ const googleAuthentication = async (req, res) => {
       .catch((err) => {
         res.status(404).send("err");
       });
+if(userData){
+  await User.findOneAndUpdate({ email }, { $set: { isLoggedin: true } });
 
+}
   } catch (error) {
     res.status(404).send("error");
   }
