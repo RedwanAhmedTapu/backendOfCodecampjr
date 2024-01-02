@@ -13,7 +13,7 @@ const activeStudentSchema = new mongoose.Schema({
     days: [String],
     time: String,
   },
-  email: {
+  useremail: {
     type: String,
      unique:true
   },
