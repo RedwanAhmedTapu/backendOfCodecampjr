@@ -35,8 +35,8 @@ app.post("/active-user/registration", activeUser);
 app.post("/auth/registration", googleAuthentication);
 app.get("/active-user/info/:emailId", activeuserData);
 app.post("/active-user/order/:userMail", payment);
-app.post("/verify-email", verifyEmail);
-app.post("/auth/googleAuth-verfication", googleAuthverfication);
+// app.post("/verify-email", verifyEmail);
+// app.post("/auth/googleAuth-verfication", googleAuthverfication);
 
 const storage = multer.diskStorage({
   destination: path.join(__dirname, 'uploads'),
