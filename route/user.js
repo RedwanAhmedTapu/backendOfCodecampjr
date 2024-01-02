@@ -1,4 +1,4 @@
-const { User, Verification } = require("../models/register.model");
+const { User } = require("../models/register.model");
 const bcrypt = require("bcrypt");
 // const nodemailer = require("nodemailer");
 // const randomstring = require("randomstring");
