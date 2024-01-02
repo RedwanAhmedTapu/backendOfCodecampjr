@@ -1,6 +1,6 @@
 const { User, Verification } = require("../models/register.model");
 const bcrypt = require("bcrypt");
-const randomstring = require("randomstring");
+// const randomstring = require("randomstring");
 
 const googleAuthentication = async (req, res) => {
   console.log(req.body);
@@ -24,18 +24,18 @@ const googleAuthentication = async (req, res) => {
           });
           newUser.save();
 
-          const verificationCode = randomstring.generate(6);
-          const newVerification = new Verification({
-            email,
-            code: verificationCode,
-          });
-          newVerification.save();
-          await User.findOneAndUpdate(
-            { email },
-            { $set: { isLoggedin: true } }
-          );
+          // const verificationCode = randomstring.generate(6);
+          // const newVerification = new Verification({
+          //   email,
+          //   code: verificationCode,
+          // });
+          // newVerification.save();
+          // await User.findOneAndUpdate(
+          //   { email },
+          //   { $set: { isLoggedin: true } }
+          // );
 
-          res.status(200).json({ message: `${verificationCode}` });
+          // res.status(200).json({ message: `${verificationCode}` });
         }
       })
       .catch((err) => {
