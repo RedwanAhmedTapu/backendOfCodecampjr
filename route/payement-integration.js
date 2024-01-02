@@ -1,4 +1,4 @@
-const activeUserOrder = require("../models/active.user.model");
+const User = require("../models/register.model");
 const SSLCommerzPayment = require("sslcommerz-lts");
 var ObjectId = require('mongodb').ObjectId;
 require("dotenv").config();
@@ -12,22 +12,21 @@ const is_live = false;
 const payment = async (req, res) => {
   const email = req.params.userMail;
   console.log(email);
-  const orderData = await activeUserOrder.findOne({ email }).then((order) => {
+  const orderData = await User.findOne({ email }).then((order) => {
     return order;
   });
-  console.log(orderData.level);
 
   // pricing
-  let amount;
-  if (orderData.level === "level-A") {
-    amount = 2500;
-  }
- else if (orderData.level === "level-B") {
-    amount = 5000;
-  }
-  else{
-    amount = 7500;
-  }
+//   let amount;
+//   if (orderData.level === "level-A") {
+//     amount = 2500;
+//   }
+//  else if (orderData.level === "level-B") {
+//     amount = 5000;
+//   }
+//   else{
+//     amount = 7500;
+//   }
   // splittin email for user name
   const extractNameFromEmail=(email)=> {
     const parts = email.split("@");
