@@ -19,7 +19,7 @@ require("../db/connection");
 
 app.use(
   cors({
-    origin: "http:local",
+    origin: "https://codecampjr.vercel.app",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
