@@ -22,7 +22,7 @@ const googleAuthentication = async (req, res) => {
             lname,
             email,
           });
-          newUser.save();
+         await newUser.save();
           res.send({ message: "user registered successfully" });
 
 
