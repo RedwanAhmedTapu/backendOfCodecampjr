@@ -23,6 +23,8 @@ const googleAuthentication = async (req, res) => {
             email,
           });
           newUser.save();
+          res.send({ message: "user registered successfully" });
+
 
           // const verificationCode = randomstring.generate(6);
           // const newVerification = new Verification({
