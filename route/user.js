@@ -33,7 +33,7 @@ const registration = async (req, res) => {
       password: hashpassword,
     });
     await newUser.save();
-    res.status(400).json({ message: "user registered successfully" });
+    res.status(200).json({ message: "user registered successfully" });
 
     // // Generate verification code
     // const verificationCode = randomstring.generate(6);

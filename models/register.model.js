@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema({
    
     
   },
+  isLoggedin:{
+    default:false
+  }
 });
 
 // Define the Verification schema

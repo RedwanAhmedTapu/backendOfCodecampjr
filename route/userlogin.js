@@ -18,11 +18,13 @@ const userLog = async (req, res) => {
           }
 
           if (isMatch) {
+            
             const token = jwt.sign({ email }, process.env.JWT_SECRETKEY, {
               expiresIn: "1h",
             });
 
             // Return the token to the client
+            
 
             res.status(200).json({ user, token });
           } else {
