@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
     
   },
   isLoggedin:{
+    type:Boolean,
     default:false
   }
 });
@@ -31,7 +32,7 @@ const verificationSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+   
   },
   code: {
     type: String,

@@ -1,4 +1,4 @@
-const ActiveStudentModel = require("../models/active.user.model");
+const ActiveStudentModel = require("../models/trial.learner.model");
 
 const activeUser = async (req, res) => {
     
