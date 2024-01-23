@@ -27,7 +27,7 @@ app.use(
 );
 
 app.use(express.json());
-app.get("/",()=>{res.send("tapu")})
+app.get("/",(req,res)=>{res.send("tapu")})
 
 app.post("/user/signup", signup);
 app.post("/user/login", login);
