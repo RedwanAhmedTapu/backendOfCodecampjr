@@ -13,13 +13,21 @@ const googleAuthentication = require("../route/googleAuth");
 const payment = require("../route/payement-integration");
 const verifyEmail = require("../route/email.verification");
 const googleAuthverfication = require("../route/googleAuth.verfication");
+const triallearnerData=require("../route/trial.learner.data");
+const trialLearnerUpdatedData=require("../route/update.trial.learner.data");
+const deletetrialLearnerData=require("../route/delete.trial.learner");
+const updateTrialLearnerCompletion=require("../route/update-trial-completed");
+const updateTrialToActive=require("../route/update-.trial.to.activelearner");
 
 require("dotenv").config();
 require("../db/connection");
+const origin=`https://codecampjr.vercel.app`;
+// const origin=`http://localhost:3000`;
+const server=`https://codecampjrbackend.onrender.com`;
 
 app.use(
   cors({
-    origin: "https://codecampjr.vercel.app",
+    origin: origin,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -27,7 +35,8 @@ app.use(
 );
 
 app.use(express.json());
-app.get("/",(req,res)=>{res.send("tapu")})
+
+// app.get("/",(req,res)=>{res.send("tapu")});
 
 app.post("/user/signup", signup);
 app.post("/user/login", login);
@@ -36,6 +45,11 @@ app.post("/active-user/registration", activeUser);
 app.post("/auth/registration", googleAuthentication);
 app.get("/active-user/info/:emailId", activeuserData);
 app.post("/active-user/order/:userMail", payment);
+app.get("/learner-data",triallearnerData);
+app.put("/update-trial-learner-data",trialLearnerUpdatedData);
+app.put("/update-trial-to-active-learner-data",updateTrialToActive);
+app.delete("/learner-delete/:email",deletetrialLearnerData);
+app.put("/learner-update/:email",updateTrialLearnerCompletion);
 // app.post("/verify-email", verifyEmail);
 // app.post("/auth/googleAuth-verfication", googleAuthverfication);
 
@@ -49,7 +63,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.post('/upload', upload.single('photo'), (req, res) => {
-  const imageUrl = `https://codecampjrbackend.onrender.com/uploads/${req.file.filename}`;
+  const imageUrl = `${server}/uploads/${req.file.filename}`;
   res.json({ imageUrl });
   activeUser.image = imageUrl;
 });

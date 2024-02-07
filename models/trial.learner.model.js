@@ -30,6 +30,28 @@ const learnerSchema=new mongoose.Schema({
     type: String,
     required: true,
   },
+  level: {
+    type: String,
+  },
+  group: {
+    type: String,
+  },
+  schedule: {
+    days: [String],
+    time: String,
+  },
+  booked:{
+    type:Boolean,
+    default:false
+  },
+  completed:{
+    type:Boolean,
+    default:false
+  },
+  active:{
+    type:Boolean,
+    default:false
+  }
   // country: {
   //   type: String,
   //   required: true,
