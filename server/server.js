@@ -24,6 +24,7 @@ require("../db/connection");
 const origin=`https://codecampjr.vercel.app`;
 // const origin=`http://localhost:3000`;
 const server=`https://codecampjrbackend.onrender.com`;
+// const server=`http://localhost:5000`;
 
 app.use(
   cors({

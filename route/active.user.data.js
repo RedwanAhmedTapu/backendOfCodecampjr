@@ -1,11 +1,11 @@
-const ActiveStudentModel = require("../models/trial.learner.model");
+const LearnerData = require("../models/trial.learner.model");
 
 const activeUser = async (req, res) => {
     
   const email = req.params.emailId;
   console.log(email)
   try {
-    const activeuserData = await ActiveStudentModel.findOne({ email })
+    const activeuserData = await LearnerData.findOne({ learnerEmail:email,active:true })
       .exec()
       .then((activeUser) => {
         if (activeUser) {
