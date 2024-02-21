@@ -47,13 +47,11 @@ app.post("/active-user/registration", activeUser);
 app.post("/auth/registration", googleAuthentication);
 app.get("/active-user/info/:emailId",veryfytoken, activeuserData);
 app.post("/active-user/order/:userMail", payment);
-app.get("/learner-data",triallearnerData);
+app.get("/learner-data",veryfytoken,triallearnerData);
 app.put("/update-trial-learner-data",veryfytoken,trialLearnerUpdatedData);
 app.put("/update-trial-to-active-learner-data",veryfytoken,updateTrialToActive);
 app.delete("/learner-delete/:email",veryfytoken,deletetrialLearnerData);
 app.put("/learner-update/:email",veryfytoken,updateTrialLearnerCompletion);
-// app.post("/verify-email", verifyEmail);
-// app.post("/auth/googleAuth-verfication", googleAuthverfication);
 
 const storage = multer.diskStorage({
   destination: path.join(__dirname, 'uploads'),
