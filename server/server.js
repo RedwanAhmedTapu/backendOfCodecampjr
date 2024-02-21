@@ -18,17 +18,18 @@ const trialLearnerUpdatedData=require("../route/update.trial.learner.data");
 const deletetrialLearnerData=require("../route/delete.trial.learner");
 const updateTrialLearnerCompletion=require("../route/update-trial-completed");
 const updateTrialToActive=require("../route/update-.trial.to.activelearner");
+const veryfytoken=require("../middleWear/veryfy.token");
 
 require("dotenv").config();
 require("../db/connection");
-const origin=`https://codecampjr.vercel.app`;
-// const origin=`http://localhost:3000`;
-const server=`https://codecampjrbackend.onrender.com`;
-// const server=`http://localhost:5000`;
+
+const origin=process.env.ORIGIN;
+const server=process.env.SERVER_URL;
+console.log(origin)
 
 app.use(
   cors({
-    origin: origin,
+    origin:origin ,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -44,13 +45,13 @@ app.post("/user/login", login);
 app.post("/learner/trial-registration", learner);
 app.post("/active-user/registration", activeUser);
 app.post("/auth/registration", googleAuthentication);
-app.get("/active-user/info/:emailId", activeuserData);
+app.get("/active-user/info/:emailId",veryfytoken, activeuserData);
 app.post("/active-user/order/:userMail", payment);
 app.get("/learner-data",triallearnerData);
-app.put("/update-trial-learner-data",trialLearnerUpdatedData);
-app.put("/update-trial-to-active-learner-data",updateTrialToActive);
-app.delete("/learner-delete/:email",deletetrialLearnerData);
-app.put("/learner-update/:email",updateTrialLearnerCompletion);
+app.put("/update-trial-learner-data",veryfytoken,trialLearnerUpdatedData);
+app.put("/update-trial-to-active-learner-data",veryfytoken,updateTrialToActive);
+app.delete("/learner-delete/:email",veryfytoken,deletetrialLearnerData);
+app.put("/learner-update/:email",veryfytoken,updateTrialLearnerCompletion);
 // app.post("/verify-email", verifyEmail);
 // app.post("/auth/googleAuth-verfication", googleAuthverfication);
 
