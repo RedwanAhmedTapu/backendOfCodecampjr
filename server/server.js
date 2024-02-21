@@ -72,7 +72,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 app.listen(port, () => {
   console.log("Server is running on port: " + port);
