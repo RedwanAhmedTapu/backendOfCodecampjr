@@ -26,7 +26,7 @@ require("../db/connection");
 const origin=process.env.ORIGIN;
 const server=process.env.SERVER_URL;
 console.log(origin)
-
+console.log(server)
 app.use(
   cors({
     origin:origin ,
